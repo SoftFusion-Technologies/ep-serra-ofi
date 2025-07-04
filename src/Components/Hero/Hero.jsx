@@ -120,7 +120,7 @@ export default function Hero() {
               loop={1} // Se tipea una sola vez
               cursor
               cursorStyle="|"
-              typeSpeed={35}
+              typeSpeed={45}
               deleteSpeed={0} // Nunca borra el texto
             />
           </p>
