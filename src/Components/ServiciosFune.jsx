@@ -54,7 +54,7 @@ export default function ServiciosFune() {
   return (
     <section
       id="servicios"
-      className="relative py-20 bg-gradient-to-b from-[#12182a] via-[#17203a] to-[#13192c] text-white overflow-hidden"
+      className="mt-32 relative py-20 bg-gradient-to-b from-[#12182a] via-[#17203a] to-[#13192c] text-white overflow-hidden"
     >
       <ParticlesBackground />
 

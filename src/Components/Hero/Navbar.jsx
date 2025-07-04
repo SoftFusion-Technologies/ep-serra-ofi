@@ -56,35 +56,25 @@ export default function Navbar() {
         {/* LINKS Desktop */}
         <div className="hidden md:flex items-center gap-1 ml-6">
           {LINKS.map((item) => (
-            <div key={item.to} className="relative flex items-center">
-              <Link
-                to={item.to}
-                className={`
-                  text-blue-600 px-4 py-2 mx-1 font-bold font-display text-sm uppercase tracking-widest
-                  transition-all duration-150
-                  ${
-                    isActive(item.to)
-                      ? 'opacity-100 underline'
-                      : 'opacity-70 hover:opacity-100'
-                  }
-                `}
-                style={{ letterSpacing: '0.09em' }}
-              >
-                {item.label}
-              </Link>
-              <AnimatePresence>
-                {isActive(item.to) && (
-                  <motion.div
-                    layoutId="navbar-underline"
-                    className="absolute left-3 right-3 -bottom-1 h-[3px] bg-primary rounded-full"
-                    initial={{ opacity: 0, scaleX: 0.4 }}
-                    animate={{ opacity: 1, scaleX: 1 }}
-                    exit={{ opacity: 0, scaleX: 0.7 }}
-                    transition={{ duration: 0.23 }}
-                  />
-                )}
-              </AnimatePresence>
-            </div>
+            <Link
+              key={item.to}
+              to={item.to}
+              className={`
+        relative px-4 py-2 mx-1 font-bold font-display text-sm uppercase tracking-widest rounded-2xl
+        transition-all duration-150
+        ${
+          isActive(item.to)
+            ? 'bg-[#175CD3]/10 shadow-[0_2px_12px_0_#175CD326] text-[#175CD3] scale-105'
+            : 'text-blue-600 hover:bg-blue-50 hover:text-[#175CD3] opacity-80'
+        }
+      `}
+              style={{ letterSpacing: '0.09em' }}
+            >
+              {item.label}
+              {isActive(item.to) && (
+                <span className="absolute -inset-1 rounded-2xl border border-blue-200/50 pointer-events-none" />
+              )}
+            </Link>
           ))}
           {/* Botón CTA desktop */}
           <a
