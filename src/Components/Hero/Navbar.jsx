@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import ImgLogoNavBar from './Img/logoNavBar.png';
+import ImgLogoNavBar from '../Img/logoNavBar.png';
 
 const LINKS = [
   { label: 'INICIO', to: '/' },
@@ -64,7 +64,7 @@ export default function Navbar() {
                   transition-all duration-150
                   ${
                     isActive(item.to)
-                      ? 'opacity-100'
+                      ? 'opacity-100 underline'
                       : 'opacity-70 hover:opacity-100'
                   }
                 `}
@@ -86,6 +86,15 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
           ))}
+          {/* Botón CTA desktop */}
+          <a
+            href="https://afiliados.serra-cloud.com/index.php?r=site%2Flogin"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-4 px-5 py-2 rounded-lg bg-[#175CD3] text-white font-bold text-sm shadow hover:bg-blue-700 transition-colors"
+          >
+            Portal Afiliados
+          </a>
         </div>
 
         {/* Mobile burger */}
@@ -96,19 +105,22 @@ export default function Navbar() {
         >
           <div className="flex flex-col justify-between w-8 h-8">
             <span
-              className={`block h-1.5 w-full rounded-full bg-primary transition-all duration-200
+              className={`
+                block h-1.5 w-full rounded-full transition-all duration-200
                 ${open ? 'rotate-45 translate-y-2.5' : ''}
               `}
               style={{ backgroundColor: '#175CD3' }}
             ></span>
             <span
-              className={`block h-1.5 w-full rounded-full bg-primary transition-all duration-200
+              className={`
+                block h-1.5 w-full rounded-full transition-all duration-200
                 ${open ? 'opacity-0' : ''}
               `}
               style={{ backgroundColor: '#175CD3' }}
             ></span>
             <span
-              className={`block h-1.5 w-full rounded-full bg-primary transition-all duration-200
+              className={`
+                block h-1.5 w-full rounded-full transition-all duration-200
                 ${open ? '-rotate-45 -translate-y-2.5' : ''}
               `}
               style={{ backgroundColor: '#175CD3' }}
@@ -140,7 +152,7 @@ export default function Navbar() {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', stiffness: 320, damping: 30 }}
-            className="fixed top-0 right-0 z-50 bg-white/98 backdrop-blur-2xl shadow-2xl h-full w-64 flex flex-col"
+            className="fixed top-0 right-0 z-50 bg-white/98 backdrop-blur-2xl shadow-2xl h-full w-72 flex flex-col"
           >
             <button
               className="absolute top-5 right-5 p-2"
@@ -149,7 +161,7 @@ export default function Navbar() {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-7 w-7 text-primary"
+                className="h-7 w-7 text-[#175CD3]"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -161,25 +173,34 @@ export default function Navbar() {
                 />
               </svg>
             </button>
-            <nav className="flex flex-col gap-2 mt-24 ml-10">
+            <nav className="flex flex-col gap-5 mt-24 ml-10 pr-8">
               {LINKS.map((item) => (
                 <Link
                   key={item.to}
                   to={item.to}
                   onClick={() => setOpen(false)}
                   className={`
-                    px-4 py-2 font-bold font-display text-primary text-base uppercase tracking-widest transition-all duration-150
+                    px-2 py-3 font-bold text-[#175CD3] text-lg uppercase tracking-wider rounded-xl
+                    transition-all duration-150 active:bg-blue-100 hover:bg-blue-50
                     ${
-                      isActive(item.to)
-                        ? 'opacity-100'
-                        : 'opacity-70 hover:opacity-100'
+                      isActive(item.to) ? 'opacity-100 underline' : 'opacity-80'
                     }
                   `}
-                  style={{ letterSpacing: '0.14em' }}
+                  style={{ letterSpacing: '0.12em' }}
                 >
                   {item.label}
                 </Link>
               ))}
+              {/* Botón CTA mobile */}
+              <a
+                href="https://afiliados.serra-cloud.com/index.php?r=site%2Flogin"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 px-4 py-3 rounded-lg bg-[#175CD3] text-white font-bold text-base shadow hover:bg-blue-700 transition-colors text-center"
+                onClick={() => setOpen(false)}
+              >
+                Portal Afiliados
+              </a>
             </nav>
           </motion.aside>
         )}
