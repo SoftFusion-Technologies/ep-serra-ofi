@@ -1,0 +1,94 @@
+@import 'tailwindcss';
+
+/* ======================
+   Paleta de colores custom (variables CSS)
+   ====================== */
+:root {
+  --color-primary: #175cd3;
+  --color-accent: #63b3ed;
+  --color-secondary: #f0f4f9;
+  --color-dark: #112044;
+}
+
+/* ======================
+   Fuentes globales
+   ====================== */
+body {
+  font-family: 'Inter', 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  background-color: var(--color-secondary);
+  color: var(--color-dark);
+  min-height: 100vh;
+}
+
+/* ======================
+   Utilitarias modernas (ejemplo)
+   ====================== */
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+  padding: 0.85rem 2.2rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  box-shadow: 0 6px 32px 0 rgba(23, 92, 211, 0.1),
+    0 1.5px 6px 0 rgba(0, 0, 0, 0.08);
+  transition: background 0.2s;
+}
+.btn-primary:hover {
+  background: var(--color-accent);
+}
+
+.section-title {
+  font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  font-size: 2.7rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  margin-bottom: 2.5rem;
+  text-shadow: 0 2px 8px rgba(23, 92, 211, 0.08);
+}
+
+.card {
+  background: #fff;
+  border-radius: 2rem;
+  box-shadow: 0 6px 32px 0 rgba(23, 92, 211, 0.1),
+    0 1.5px 6px 0 rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  transition: box-shadow 0.3s;
+}
+.card:hover {
+  box-shadow: 0 12px 40px 0 rgba(23, 92, 211, 0.18),
+    0 2.5px 10px 0 rgba(0, 0, 0, 0.11);
+}
+
+/* Otros helpers */
+.rounded-4xl {
+  border-radius: 2rem;
+}
+.shadow-soft {
+  box-shadow: 0 6px 32px 0 rgba(23, 92, 211, 0.1),
+    0 1.5px 6px 0 rgba(0, 0, 0, 0.08);
+}
+
+/* Ejemplo para clase glassy (glassmorphism) */
+.glassy {
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+}
+.font-handwrite {
+  font-family: 'Pacifico', 'Dancing Script', cursive;
+}
+/* animaciones personalizadas opcionales */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fadeInUp {
+  animation: fadeInUp 1.3s cubic-bezier(0.17, 0.67, 0.83, 0.67) both;
+}
