@@ -167,8 +167,6 @@ export default function Footer() {
         </div>
       </div>
 
-     
-
       {/* Separador inferior wave SVG */}
       <div className="w-full mt-10 pointer-events-none select-none">
         <svg
